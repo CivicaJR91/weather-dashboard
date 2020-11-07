@@ -26,10 +26,6 @@
     </header>
     <!--Search Buttpn-->
 
-
-
-
-
     <div class="container">
         <div class="row">
             <div class="col col-lg-4">
@@ -59,7 +55,7 @@
             <!--Button To Display City-->
             <div id="citybutton"></div>
             <!--Display City Weather Information-->
-            <div class="col-lg-6" id="cityweatherinfo">
+            <div class="col-lg-6" id="cityweatherinfo" style="display: none;">
                 <div class=".col-lg-">
                     <h5 class="card-title" id="name"></h5>
                     <p id="temperturecity"></p>
@@ -68,7 +64,8 @@
                 </div>
             </div>
         </div>
-        <div class="row" id="fivedays">
+        <!--Display 5 Days Forecast-->
+        <div class="row" id="fivedays" style="display: none;">
             <div class="col-lg">
                 <label>empty</label>
             </div>
@@ -120,8 +117,6 @@
         </div>
 
 
-
-
         <!--JQUERY CDN-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--Javascripit-->
@@ -131,14 +126,10 @@
             var weatherAPIKey = "39e4acb4a712720542d4a2cfd44c60f3";
 
             //QueryURL
-            var QueryURL = "http://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=100&appid=" + weatherAPIKey;
+            var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=5&appid="+weatherAPIKey;
             console.log(QueryURL);
 
-            // https://pro.openweathermap.org/data/2.5/forecast/climate?q={city name}
-
-            // http: api.openweathermap.org/data/2.5/forecast/daily?q={city name}
-
-            // api.openweathermap.org/data/2.5/forecast/daily?q={city name}
+            
 
             // on the click of the search button make the call to the API
             $('#searchbtton').click(function () {
@@ -147,7 +138,7 @@
                 console.log(cityName);
 
 
-                var QueryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=100&appid=" + weatherAPIKey;
+                var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&cnt=5&appid="+weatherAPIKey;
                 console.log(QueryURL);
 
                 $.ajax({
@@ -172,12 +163,22 @@
                             l.text(cityList);
                             $("#searchlist").append(l);
 
+                            //on click show container with city information
+                            $("#cityweatherinfo").show();
+                            $("#fivedays").show();
+                          
+                            
                             $("#name").text("City Name: " + " " + cityList + " " + " " + date);
                             $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
                             $("#humidity").text("Humidity: " + response.list[0].main.humidity);
                             $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
 
-                            //Pop up 5 Days
+                            //5 Days Forecast
+                            //Day 1
+                            $("#dayone").text(response.list[1].dt_txt);
+                            $("#onedesc").text(response.list[1].weather[0].description);
+                            $("#onetem").text(response.list[1].main.temp);
+                            $("#onehum").text(response.list[1].main.humidity);
 
 
 
