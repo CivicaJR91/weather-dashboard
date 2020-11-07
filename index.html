@@ -8,8 +8,10 @@
     <!--Bootstrap CSS Link-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <!--Google Fonts-->
-        <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+    <!--Google Fonts-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Montserrat&family=Open+Sans&display=swap"
+        rel="stylesheet">
     <!--Link to CSS Styleseet-->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -48,9 +50,9 @@
         <!--Button To Display City-->
         <div id="citybutton"></div>
         <!--Display City Weather Information-->
-        <div class="container" id="weatherview"> 
+        <div class="container" id="weatherview">
             <label> City Information</label>
-            <div class="row" > 
+            <div class="row">
                 <div class=".col-lg-">
                     <h5 class="card-title" id="name"></h5>
                     <p id="temperturecity"></p>
@@ -83,7 +85,7 @@
             var QueryURL = "http://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=5&appid=" + weatherAPIKey;
             console.log(QueryURL);
 
-// on the click of the search button make the call to the API
+            // on the click of the search button make the call to the API
             $('#searchbtton').click(function () {
 
                 var cityName = $('#search').val();
@@ -98,36 +100,43 @@
                     method: "GET"
 
                 })
-                //After getting the response- render city, and the information
+                    //After getting the response- render city, and the information
                     .then(function (response) {
-              
+
                         console.log(response);
 
                         var cityList = response.city.name;
                         console.log(cityList);
                         var date = response.list[0].dt_txt;
+                        // var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
                         function renderCity() {
-                            $("#searchbtton").empty();
-
-                            for (i = 0; i < cityList.lenght; i++); {
+                 
                                 var l = $("<li>");
-
                                 l.addClass("list-group-item");
-                                l.text(cityList[i]);
+                                l.text(cityList);
                                 $("#searchlist").append(l);
 
+                                $("#name").text("City Name: " + " " + cityList + " " + " " + date);
+                                $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
+                                $("#humidity").text("Humidity: " + response.list[0].main.humidity);
+                                $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
+
+                                //Pop up 5 Days
+
+
+
                                 $(l).click(function () {
-                                    $("#name").text("City Name: " +  cityList  +  date);
+                                    $("#name").text("City Name: " + " " + cityList + " " + " " + date);
                                     $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
                                     $("#humidity").text("Humidity: " + response.list[0].main.humidity);
                                     $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
 
                                 })
-                            }
+                            // }
                         }
                         renderCity();
-                       
+
 
 
                     })
