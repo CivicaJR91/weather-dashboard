@@ -25,34 +25,41 @@
         </div>
     </header>
     <!--Search Buttpn-->
-    <label i="textsearch">Search for a City</label>
-    <div>
-        <input id="search" type="text">
-        <button id="searchbtton">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
-                <path fill-rule="evenodd"
-                    d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
-            </svg>
-        </button>
 
-        <div class="card" id="displaycity" style="width: 18rem;">
-            <div class="card-header">
-                Searched City
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-4">
+                <label i="textsearch">Search for a City</label>
+                <div>
+                    <input id="search" type="text">
+                    <button id="searchbtton">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                            <path fill-rule="evenodd"
+                                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card" id="displaycity" style="width: 18rem;">
+                    <div class="card-header">
+                        Searched City
+                    </div>
+                    <ul class="list-group list-group-flush" id="searchlist">
+                        <!--<li class="list-group-item"></li>-->
+                    </ul>
+                </div>
+
             </div>
-            <ul class="list-group list-group-flush" id="searchlist">
-                <!--<li class="list-group-item"></li>-->
-            </ul>
-        </div>
-
-        <!--Button To Display City-->
-        <div id="citybutton"></div>
-        <!--Display City Weather Information-->
-        <div class="container" id="weatherview">
-            <label> City Information</label>
-            <div class="row">
+            <!--Button To Display City-->
+            <div id="citybutton"></div>
+            <!--Display City Weather Information-->
+            <div class="col-lg-6" id="cityweatherinfo">
                 <div class=".col-lg-">
                     <h5 class="card-title" id="name"></h5>
                     <p id="temperturecity"></p>
@@ -60,16 +67,58 @@
                     <p id="winspeed"></p>
                 </div>
             </div>
-
         </div>
-
-        <div id="fivedayforecast">
-            <div id="dayone">
-                <div id="weathericon"></div>
-                <div id="temp"></div>
-                <div id="hum"></div>
+        <div class="row" id="fivedays">
+            <div class="col-lg">
+                <label>empty</label>
             </div>
+            <div class="col col-lg-2">
+                <div class="card" style="width: 10rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" id="dayone">Date</h5>
+                        <p class="card-text" id="onedesc">Description</p>
+                        <p class="card-text" id="onetem">temp</p>
+                        <p class="card-text" id="onehum">Hum</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col col-lg-2">
+                <div class="card" style="width: 10rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" id="dayone">Date</h5>
+                        <p class="card-text" id="onedesc">Description</p>
+                        <p class="card-text" id="onetem">temp</p>
+                        <p class="card-text" id="onehum">Hum</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col col-lg-2">
+                <div class="card" style="width: 10rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" id="dayone">Date</h5>
+                        <p class="card-text" id="onedesc">Description</p>
+                        <p class="card-text" id="onetem">temp</p>
+                        <p class="card-text" id="onehum">Hum</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col col-lg-2">
+                <div class="card" style="width: 10rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" id="dayone">Date</h5>
+                        <p class="card-text" id="onedesc">Description</p>
+                        <p class="card-text" id="onetem">temp</p>
+                        <p class="card-text" id="onehum">Hum</p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+
 
 
 
@@ -82,8 +131,14 @@
             var weatherAPIKey = "39e4acb4a712720542d4a2cfd44c60f3";
 
             //QueryURL
-            var QueryURL = "http://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=5&appid=" + weatherAPIKey;
+            var QueryURL = "http://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=100&appid=" + weatherAPIKey;
             console.log(QueryURL);
+
+            // https://pro.openweathermap.org/data/2.5/forecast/climate?q={city name}
+
+            // http: api.openweathermap.org/data/2.5/forecast/daily?q={city name}
+
+            // api.openweathermap.org/data/2.5/forecast/daily?q={city name}
 
             // on the click of the search button make the call to the API
             $('#searchbtton').click(function () {
@@ -92,7 +147,7 @@
                 console.log(cityName);
 
 
-                var QueryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=5&appid=" + weatherAPIKey;
+                var QueryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=100&appid=" + weatherAPIKey;
                 console.log(QueryURL);
 
                 $.ajax({
@@ -111,28 +166,28 @@
                         // var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
                         function renderCity() {
-                 
-                                var l = $("<li>");
-                                l.addClass("list-group-item");
-                                l.text(cityList);
-                                $("#searchlist").append(l);
 
+                            var l = $("<li>");
+                            l.addClass("list-group-item");
+                            l.text(cityList);
+                            $("#searchlist").append(l);
+
+                            $("#name").text("City Name: " + " " + cityList + " " + " " + date);
+                            $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
+                            $("#humidity").text("Humidity: " + response.list[0].main.humidity);
+                            $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
+
+                            //Pop up 5 Days
+
+
+
+                            $(l).click(function () {
                                 $("#name").text("City Name: " + " " + cityList + " " + " " + date);
                                 $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
                                 $("#humidity").text("Humidity: " + response.list[0].main.humidity);
                                 $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
 
-                                //Pop up 5 Days
-
-
-
-                                $(l).click(function () {
-                                    $("#name").text("City Name: " + " " + cityList + " " + " " + date);
-                                    $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
-                                    $("#humidity").text("Humidity: " + response.list[0].main.humidity);
-                                    $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
-
-                                })
+                            })
                             // }
                         }
                         renderCity();

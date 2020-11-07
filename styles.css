@@ -24,8 +24,27 @@ label{
     background-color: blueviolet;
 } 
 
+#cityweatherinfo{
+    margin-top: 25px;
+  padding-top: 20px;
+    border-style: inset;
+    border-color: blueviolet;
+}
+
 #weatherview {
   position: fixed;
     margin-left: 400px;
     border: 10px;
+}
+
+#
+#days{
+    margin-top: 60px;
+}
+
+#fivedays{
+    
+margin-top: 15px;
+margin-bottom: 10px;
+
 }
