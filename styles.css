@@ -1,3 +1,8 @@
+
+body{
+    font-family:'Cardo', serif,'Montserrat', sans-serif,'Open Sans', sans-serif; 
+}
+
 h1 {
     text-align: center;
 }
@@ -18,3 +23,9 @@ label{
 .list-group-item:hover {
     background-color: blueviolet;
 } 
+
+#weatherview {
+  position: fixed;
+    margin-left: 400px;
+    border: 10px;
+}
