@@ -40,7 +40,7 @@ You can get access to the weather in any city buy entering a city name in the se
 # Repository:
 
 * Repository: https://github.com/CivicaJR91/weather-dashboard
-* Page Link: https://civicajr91.github.io/weather-dashboard/.
+* Page Link: https://civicajr91.github.io/weather-dashboard/
 
 
 
