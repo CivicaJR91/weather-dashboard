@@ -1,1 +1,47 @@
 # weather-dashboard
+Use this weather application to get your daily basic information about the weather in your city!
+
+
+**Criteria provider by the client:**
+
+```
+GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+WHEN I view the UV index
+THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city
+WHEN I open the weather dashboard
+THEN I am presented with the last searched city forecast
+```
+
+# How to use the Weather App:
+You can get access to the weather in any city buy entering a city name in the search box.
+
+# Mockup:
+![Weather Application](./images/Weather_Screenshot2.png)
+![Weather Application](./images/Weather_Screenshot1.png)
+
+
+# Resources:
+
+* Visual Code - used to modify html and css files
+* Google developer tools - to test changes
+* Chrome, Safari, Firefox - to ensure page render correctly
+* Mozilla JavaScript
+* Boostrap
+* Open Weather Map API
+
+# Repository:
+
+* Repository: https://github.com/CivicaJR91/weather-dashboard
+* Page Link: https://civicajr91.github.io/weather-dashboard/.
+
+
+
+

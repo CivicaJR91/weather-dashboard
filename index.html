@@ -18,9 +18,9 @@
 
 <body>
     <header>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid bg-info text-white">
             <div class="container">
-                <h1 class="display-4">Weather Dashboard</h1>
+                <h1 class="display-4 bg-info text-white">Weather Dashboard</h1>
             </div>
         </div>
     </header>
@@ -43,10 +43,10 @@
                     </button>
                 </div>
                 <div class="card" id="displaycity" style="width: 18rem;">
-                    <div class="card-header">
+                    <div class="card-header bg-info text-white">
                         Searched City
                     </div>
-                    <ul class="list-group list-group-flush" id="searchlist">
+                    <ul class=" list-group list-group-flush" id="searchlist">
                         <!--<li class="list-group-item"></li>-->
                     </ul>
                 </div>
@@ -55,158 +55,235 @@
             <!--Button To Display City-->
             <div id="citybutton"></div>
             <!--Display City Weather Information-->
-            <div class="col-lg-6" id="cityweatherinfo" style="display: none;">
+
+            <div class="col-lg-8" id="cityweatherinfo" style="display: none;">
                 <div class=".col-lg-">
                     <h5 class="card-title" id="name"></h5>
+                    <img class="icon" id="icontitle" src="" alt="icon">
                     <p id="temperturecity"></p>
                     <p id="humidity"></p>
                     <p id="winspeed"></p>
                 </div>
             </div>
         </div>
-        <!--Display 5 Days Forecast-->
-        <div class="row" id="fivedays" style="display: none;">
-            <div class="col-lg">
-                <label>empty</label>
-            </div>
-            <div class="col col-lg-2">
-                <div class="card" style="width: 10rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" id="dayone">Date</h5>
-                        <p class="card-text" id="onedesc">Description</p>
-                        <p class="card-text" id="onetem">temp</p>
-                        <p class="card-text" id="onehum">Hum</p>
-                    </div>
 
+    </div>
+    <!--Display 5 Days Forecast-->
+
+    <div class="row" id="fivedays" style="display: none;">
+        <div class="col-lg">
+            <label></label>
+        </div>
+        <div class="col col-lg-2 ">
+            <div class="card bg-info text-white carddays" style="width: 10rem;">
+                <div class="card-body ">
+                    <h6 class="card-title" id="dayone">Date</h6>
+                    <img class="icon" id="icon1" src="" alt="icon">
+                    <p class="card-text" id="onedesc">Description</p>
+                    <p class="card-text" id="onetem">temp</p>
+                    <p class="card-text" id="onehum">Hum</p>
                 </div>
-            </div>
-            <div class="col col-lg-2">
-                <div class="card" style="width: 10rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" id="dayone">Date</h5>
-                        <p class="card-text" id="onedesc">Description</p>
-                        <p class="card-text" id="onetem">temp</p>
-                        <p class="card-text" id="onehum">Hum</p>
-                    </div>
 
+            </div>
+        </div>
+        <div class="col col-lg-2 ">
+            <div class="card bg-info text-white carddays" style="width: 10rem;">
+                <div class="card-body ">
+                    <h6 class="card-title" id="daytwo">Date</h6>
+                    <img class="icon" id="icon2" src="" alt="icon">
+                    <p class="card-text" id="twodesc">Description</p>
+                    <p class="card-text" id="twotem">temp</p>
+                    <p class="card-text" id="twohum">Hum</p>
                 </div>
-            </div>
-            <div class="col col-lg-2">
-                <div class="card" style="width: 10rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" id="dayone">Date</h5>
-                        <p class="card-text" id="onedesc">Description</p>
-                        <p class="card-text" id="onetem">temp</p>
-                        <p class="card-text" id="onehum">Hum</p>
-                    </div>
 
+            </div>
+        </div>
+        <div class="col col-lg-2">
+            <div class="card bg-info text-white carddays" style="width: 10rem;">
+                <div class="card-body">
+                    <h6 class="card-title" id="daythree">Date</h6>
+                    <img class="icon" id="icon3" src="" alt="icon">
+                    <p class="card-text" id="threedesc">Description</p>
+                    <p class="card-text" id="threetem">temp</p>
+                    <p class="card-text" id="threehum">Hum</p>
                 </div>
-            </div>
-            <div class="col col-lg-2">
-                <div class="card" style="width: 10rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" id="dayone">Date</h5>
-                        <p class="card-text" id="onedesc">Description</p>
-                        <p class="card-text" id="onetem">temp</p>
-                        <p class="card-text" id="onehum">Hum</p>
-                    </div>
 
+            </div>
+        </div>
+        <div class="col col-lg-2">
+            <div class="card bg-info text-white carddays" style="width: 10rem;">
+                <div class="card-body ">
+                    <h6 class="card-title" id="dayfour">Date</h6>
+                    <img class="icon" id="icon4" src="" alt="icon">
+                    <p class="card-text" id="fourdesc">Description</p>
+                    <p class="card-text" id="fourtem">temp</p>
+                    <p class="card-text" id="fourhum">Hum</p>
                 </div>
-            </div>
 
+            </div>
         </div>
 
 
-        <!--JQUERY CDN-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!--Javascripit-->
-        <script type="text/javascript">
+    </div>
+    <!--Starts Footer-->
+    <footer id="sticky-footer">
+        <div class="container text-center">
+            <small>Janliz Suarez Porfolio &copy; Power by Boostrap</small>
+        </div>
+    </footer>
+    <!--Footer Ends-->
 
-            //Weather App API
-            var weatherAPIKey = "39e4acb4a712720542d4a2cfd44c60f3";
+    <!--JQUERY CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Javascripit-->
+    <script type="text/javascript">
 
-            //QueryURL
-            var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=5&appid="+weatherAPIKey;
+        //Weather App API
+        var weatherAPIKey = "39e4acb4a712720542d4a2cfd44c60f3";
+
+        //QueryURL
+        var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=5&appid=" + weatherAPIKey;
+        console.log(QueryURL);
+
+
+
+        // on the click of the search button make the call to the API
+        $('#searchbtton').click(function () {
+
+            var cityName = $('#search').val();
+            console.log(cityName);
+
+
+            var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=40&appid=" + weatherAPIKey;
             console.log(QueryURL);
 
-            
+            $.ajax({
+                url: QueryURL,
+                method: "GET"
 
-            // on the click of the search button make the call to the API
-            $('#searchbtton').click(function () {
+            })
+                //After getting the response- render city, and the information
+                .then(function (response) {
 
-                var cityName = $('#search').val();
-                console.log(cityName);
+                    console.log(response);
+
+                    var cityList = response.city.name;
+                    console.log(cityList);
+                    var date = response.list[0].dt_txt;
+                    
+                    function renderCity() {
+
+                        // City Name. Creating list
+
+                        var l = $("<li>");
+                        l.addClass("list-group-item");
+                        l.text(cityList);
+                        $("#searchlist").append(l);
+
+                        //on click show container with city information
+                        $("#cityweatherinfo").show();
+                        $("#fivedays").show();
+
+                        // rendering city information
+                        $("#name").text("City Name: " + " " + cityList + " " + " " + date);
+                        $("#temperturecity").text("Temperture: " + response.list[0].main.temp + "°F");
+                        $("#humidity").text("Humidity: " + response.list[0].main.humidity + "%");
+                        $("#winspeed").text("Winspeed: " + response.list[0].wind.speed + " MPH");
+                        var iconImage = response.list[0].weather[0].icon;
+                        var iconUrl = "http://openweathermap.org/img/w/" + iconImage + ".png";
+                        $("#icontitle").attr("src", iconUrl);
 
 
-                var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&cnt=5&appid="+weatherAPIKey;
-                console.log(QueryURL);
+                        
 
-                $.ajax({
-                    url: QueryURL,
-                    method: "GET"
+                        //5 Days Forecast
+                        //Day 1
+                        $("#dayone").text(response.list[1].dt_txt);
+                        $("#onedesc").text(response.list[1].weather[0].description);
+                        $("#onetem").text(response.list[1].main.temp + "°F");
+                        $("#onehum").text(response.list[1].main.humidity + "%");
+                        $("#icon1").attr("src", iconUrl);
 
-                })
-                    //After getting the response- render city, and the information
-                    .then(function (response) {
+                        //Day 2
+                        $("#daytwo").text(response.list[7].dt_txt);
+                        $("#twodesc").text(response.list[7].weather[0].description);
+                        $("#twotem").text(response.list[7].main.temp + "°F");
+                        $("#twohum").text(response.list[7].main.humidity + "%");
+                        $("#icon2").attr("src", iconUrl);
 
-                        console.log(response);
+                        //Day 3
+                        $("#daythree").text(response.list[15].dt_txt);
+                        $("#threedesc").text(response.list[15].weather[0].description);
+                        $("#threetem").text(response.list[15].main.temp + "°F");
+                        $("#threehum").text(response.list[15].main.humidity + "%");
+                        $("#icon3").attr("src", iconUrl);
 
-                        var cityList = response.city.name;
-                        console.log(cityList);
-                        var date = response.list[0].dt_txt;
-                        // var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
-                        function renderCity() {
+                        //Day 4
+                        $("#dayfour").text(response.list[23].dt_txt);
+                        $("#fourdesc").text(response.list[23].weather[0].description);
+                        $("#fourtem").text(response.list[23].main.temp + "°F");
+                        $("#fourhum").text(response.list[23].main.humidity + "%");
+                        $("#icon4").attr("src", iconUrl);
 
-                            var l = $("<li>");
-                            l.addClass("list-group-item");
-                            l.text(cityList);
-                            $("#searchlist").append(l);
 
-                            //on click show container with city information
-                            $("#cityweatherinfo").show();
-                            $("#fivedays").show();
-                          
-                            
+                        $(l).click(function () {
                             $("#name").text("City Name: " + " " + cityList + " " + " " + date);
-                            $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
-                            $("#humidity").text("Humidity: " + response.list[0].main.humidity);
-                            $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
+                            $("#temperturecity").text("Temperture: " + response.list[0].main.temp + "°F");
+                            $("#humidity").text("Humidity: " + response.list[0].main.humidity + "%");
+                            $("#winspeed").text("Winspeed: " + response.list[0].wind.speed + " MPH");
+
 
                             //5 Days Forecast
                             //Day 1
                             $("#dayone").text(response.list[1].dt_txt);
                             $("#onedesc").text(response.list[1].weather[0].description);
-                            $("#onetem").text(response.list[1].main.temp);
-                            $("#onehum").text(response.list[1].main.humidity);
+                            $("#onetem").text(response.list[1].main.temp + "°F");
+                            $("#onehum").text(response.list[1].main.humidity + "%");
+                            $("#icon1").attr("src", iconUrl);
+
+                            //Day 2
+                            $("#daytwo").text(response.list[7].dt_txt);
+                            $("#twodesc").text(response.list[7].weather[0].description);
+                            $("#twotem").text(response.list[7].main.temp + "°F");
+                            $("#twohum").text(response.list[7].main.humidity + "%");
+                            $("#icon2").attr("src", iconUrl);
+
+                            //Day 3
+                            $("#daythree").text(response.list[15].dt_txt);
+                            $("#threedesc").text(response.list[15].weather[0].description);
+                            $("#threetem").text(response.list[15].main.temp + "°F");
+                            $("#threehum").text(response.list[15].main.humidity + "%");
+                            $("#icon3").attr("src", iconUrl);
+
+
+                            //Day 4
+                            $("#dayfour").text(response.list[23].dt_txt);
+                            $("#fourdesc").text(response.list[23].weather[0].description);
+                            $("#fourtem").text(response.list[23].main.temp + "°F");
+                            $("#fourhum").text(response.list[23].main.humidity + "%");
+                            $("#icon4").attr("src", iconUrl);
+
+                        })
+
+                    }
+                    renderCity();
 
 
 
-                            $(l).click(function () {
-                                $("#name").text("City Name: " + " " + cityList + " " + " " + date);
-                                $("#temperturecity").text("Temperture: " + response.list[0].main.temp);
-                                $("#humidity").text("Humidity: " + response.list[0].main.humidity);
-                                $("#winspeed").text("Winspeed: " + response.list[0].wind.speed);
-
-                            })
-                            // }
-                        }
-                        renderCity();
+                })
 
 
 
-                    })
-
-
-
-            });
+        });
 
 
 
 
 
-        </script>
+    </script>
 
 </body>
+
 
 </html>

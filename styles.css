@@ -14,6 +14,9 @@ label{
     margin-left: 10px;
 }
 
+button{
+    background-color: #ffffff;
+}
 
 #displaycity{
     margin-left: 10px;
@@ -21,30 +24,35 @@ label{
 }
 
 .list-group-item:hover {
-    background-color: blueviolet;
+    background-color:#87e5f3;
 } 
 
 #cityweatherinfo{
     margin-top: 25px;
   padding-top: 20px;
     border-style: inset;
-    border-color: blueviolet;
+    border-color: #17a2b8;
 }
 
-#weatherview {
-  position: fixed;
-    margin-left: 400px;
-    border: 10px;
-}
-
-#
-#days{
-    margin-top: 60px;
-}
 
 #fivedays{
     
 margin-top: 15px;
-margin-bottom: 10px;
+margin-bottom: 400px;
 
+}
+
+
+h6 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.carddays{
+
+    margin-bottom: 10px;
+}
+#sticky-footer{
+
+    margin-top: 400px;
 }
