@@ -63,6 +63,7 @@
                     <p id="temperturecity"></p>
                     <p id="humidity"></p>
                     <p id="winspeed"></p>
+                    <p>UV Index:<label id="uvindex"></label></p>
                 </div>
             </div>
         </div>
@@ -141,12 +142,9 @@
         //Weather App API
         var weatherAPIKey = "39e4acb4a712720542d4a2cfd44c60f3";
 
-        //QueryURL
-        var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q={city name}&units=imperial&cnt=5&appid=" + weatherAPIKey;
-        console.log(QueryURL);
+      
 
-
-
+        
         // on the click of the search button make the call to the API
         $('#searchbtton').click(function () {
 
@@ -162,15 +160,53 @@
                 method: "GET"
 
             })
+            
+            
                 //After getting the response- render city, and the information
                 .then(function (response) {
 
+                    var lat= response.city.coord.lat;
+                    console.log(lat);
+                    var lon = response.city.coord.lon;
+                    console.log(lon);
+
+                    var uvIndex="https://api.openweathermap.org/data/2.5/uvi?lat=" + lat+ "&lon=" + lon +"&appid=" + weatherAPIKey;
+                    $.ajax({
+                    url: uvIndex,
+                    method: "GET"
+                }).then(function(index){
+                    console.log(index);
+                    var ivI= index.value;
+                    console.log(ivI);
+                    $("#uvindex").text(ivI);
+
+                    if (ivI < 2){
+                        $("#uvindex").addClass("green");
+                    }
+                    else if (ivI >3 || ivI < 5){
+                        $("#uvindex").addClass("yello");
+                    }
+                    else if (ivI === 6 || ivI === 7){
+                        $("#uvindex").addClass("orange");
+                    }
+                    else if (ivI> 8 || ivI < 10 ){
+                        $("#uvindex").addClass("red");
+                    }
+                    else if (ivI<11)
+                    $("#uvindex").addClass("purple");{
+
+                    }
+
+                })
+
                     console.log(response);
+                    console.log(uvIndex);
 
                     var cityList = response.city.name;
                     console.log(cityList);
                     var date = response.list[0].dt_txt;
-                    
+                   
+
                     function renderCity() {
 
                         // City Name. Creating list
@@ -192,30 +228,28 @@
                         var iconImage = response.list[0].weather[0].icon;
                         var iconUrl = "http://openweathermap.org/img/w/" + iconImage + ".png";
                         $("#icontitle").attr("src", iconUrl);
-
-
-                        
+        
 
                         //5 Days Forecast
                         //Day 1
                         $("#dayone").text(response.list[1].dt_txt);
                         $("#onedesc").text(response.list[1].weather[0].description);
                         $("#onetem").text(response.list[1].main.temp + "°F");
-                        $("#onehum").text(response.list[1].main.humidity + "%");
+                        $("#onehum").text("Humidity: " + response.list[1].main.humidity + "%");
                         $("#icon1").attr("src", iconUrl);
 
                         //Day 2
                         $("#daytwo").text(response.list[7].dt_txt);
                         $("#twodesc").text(response.list[7].weather[0].description);
                         $("#twotem").text(response.list[7].main.temp + "°F");
-                        $("#twohum").text(response.list[7].main.humidity + "%");
+                        $("#twohum").text("Humidity: " + response.list[7].main.humidity + "%");
                         $("#icon2").attr("src", iconUrl);
 
                         //Day 3
                         $("#daythree").text(response.list[15].dt_txt);
                         $("#threedesc").text(response.list[15].weather[0].description);
                         $("#threetem").text(response.list[15].main.temp + "°F");
-                        $("#threehum").text(response.list[15].main.humidity + "%");
+                        $("#threehum").text("Humidity: " + response.list[15].main.humidity + "%");
                         $("#icon3").attr("src", iconUrl);
 
 
@@ -223,8 +257,9 @@
                         $("#dayfour").text(response.list[23].dt_txt);
                         $("#fourdesc").text(response.list[23].weather[0].description);
                         $("#fourtem").text(response.list[23].main.temp + "°F");
-                        $("#fourhum").text(response.list[23].main.humidity + "%");
+                        $("#fourhum").text("Humidity: " + response.list[23].main.humidity + "%");
                         $("#icon4").attr("src", iconUrl);
+                       
 
 
                         $(l).click(function () {
@@ -233,36 +268,6 @@
                             $("#humidity").text("Humidity: " + response.list[0].main.humidity + "%");
                             $("#winspeed").text("Winspeed: " + response.list[0].wind.speed + " MPH");
 
-
-                            //5 Days Forecast
-                            //Day 1
-                            $("#dayone").text(response.list[1].dt_txt);
-                            $("#onedesc").text(response.list[1].weather[0].description);
-                            $("#onetem").text(response.list[1].main.temp + "°F");
-                            $("#onehum").text(response.list[1].main.humidity + "%");
-                            $("#icon1").attr("src", iconUrl);
-
-                            //Day 2
-                            $("#daytwo").text(response.list[7].dt_txt);
-                            $("#twodesc").text(response.list[7].weather[0].description);
-                            $("#twotem").text(response.list[7].main.temp + "°F");
-                            $("#twohum").text(response.list[7].main.humidity + "%");
-                            $("#icon2").attr("src", iconUrl);
-
-                            //Day 3
-                            $("#daythree").text(response.list[15].dt_txt);
-                            $("#threedesc").text(response.list[15].weather[0].description);
-                            $("#threetem").text(response.list[15].main.temp + "°F");
-                            $("#threehum").text(response.list[15].main.humidity + "%");
-                            $("#icon3").attr("src", iconUrl);
-
-
-                            //Day 4
-                            $("#dayfour").text(response.list[23].dt_txt);
-                            $("#fourdesc").text(response.list[23].weather[0].description);
-                            $("#fourtem").text(response.list[23].main.temp + "°F");
-                            $("#fourhum").text(response.list[23].main.humidity + "%");
-                            $("#icon4").attr("src", iconUrl);
 
                         })
 
