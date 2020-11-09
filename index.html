@@ -73,7 +73,6 @@
 
     <div class="row" id="fivedays" style="display: none;">
         <div class="col-lg">
-            <label></label>
         </div>
         <div class="col col-lg-2 ">
             <div class="card bg-info text-white carddays" style="width: 10rem;">
@@ -122,9 +121,10 @@
                 </div>
 
             </div>
+
         </div>
-
-
+    </div>
+    </div>
     </div>
     <!--Starts Footer-->
     <footer id="sticky-footer">
@@ -142,9 +142,9 @@
         //Weather App API
         var weatherAPIKey = "39e4acb4a712720542d4a2cfd44c60f3";
 
-      
 
-        
+
+
         // on the click of the search button make the call to the API
         $('#searchbtton').click(function () {
 
@@ -160,44 +160,45 @@
                 method: "GET"
 
             })
-            
-            
                 //After getting the response- render city, and the information
                 .then(function (response) {
 
-                    var lat= response.city.coord.lat;
+                    var lat = response.city.coord.lat;
                     console.log(lat);
                     var lon = response.city.coord.lon;
                     console.log(lon);
 
-                    var uvIndex="https://api.openweathermap.org/data/2.5/uvi?lat=" + lat+ "&lon=" + lon +"&appid=" + weatherAPIKey;
+                    var uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + weatherAPIKey;
                     $.ajax({
-                    url: uvIndex,
-                    method: "GET"
-                }).then(function(index){
-                    console.log(index);
-                    var ivI= index.value;
-                    console.log(ivI);
-                    $("#uvindex").text(ivI);
+                        url: uvIndex,
+                        method: "GET"
+                    }).then(function (index) {
+                        console.log(index);
 
-                    if (ivI < 2){
-                        $("#uvindex").addClass("green");
-                    }
-                    else if (ivI >3 || ivI < 5){
-                        $("#uvindex").addClass("yello");
-                    }
-                    else if (ivI === 6 || ivI === 7){
-                        $("#uvindex").addClass("orange");
-                    }
-                    else if (ivI> 8 || ivI < 10 ){
-                        $("#uvindex").addClass("red");
-                    }
-                    else if (ivI<11)
-                    $("#uvindex").addClass("purple");{
+                        var ivI = index.value;
+                        console.log(ivI);
 
-                    }
+                        $("#uvindex").text(ivI);
 
-                })
+                        if (ivI < 2) {
+                            $("#uvindex").addClass("green");
+                        }
+                        else if (ivI > 3 && 5) {
+                            $("#uvindex").addClass("yellow");
+                        }
+
+                        else if (ivI > 6 && 7) {
+                            $("#uvindex").addClass("orange");
+                        }
+
+                        else if (ivI > 8 && 10) {
+                            $("#uvindex").addClass("red");
+                        }
+
+                        else if (ivI === 11) {
+                            $("#uvindex").addClass("purple");
+                        }
+                    })
 
                     console.log(response);
                     console.log(uvIndex);
@@ -205,7 +206,6 @@
                     var cityList = response.city.name;
                     console.log(cityList);
                     var date = response.list[0].dt_txt;
-                   
 
                     function renderCity() {
 
@@ -215,6 +215,7 @@
                         l.addClass("list-group-item");
                         l.text(cityList);
                         $("#searchlist").append(l);
+
 
                         //on click show container with city information
                         $("#cityweatherinfo").show();
@@ -228,7 +229,10 @@
                         var iconImage = response.list[0].weather[0].icon;
                         var iconUrl = "http://openweathermap.org/img/w/" + iconImage + ".png";
                         $("#icontitle").attr("src", iconUrl);
-        
+
+
+
+
 
                         //5 Days Forecast
                         //Day 1
@@ -259,7 +263,7 @@
                         $("#fourtem").text(response.list[23].main.temp + "°F");
                         $("#fourhum").text("Humidity: " + response.list[23].main.humidity + "%");
                         $("#icon4").attr("src", iconUrl);
-                       
+
 
 
                         $(l).click(function () {
@@ -273,6 +277,8 @@
 
                     }
                     renderCity();
+
+
 
 
 
