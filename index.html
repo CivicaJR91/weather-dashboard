@@ -148,14 +148,13 @@
             var cityName = $('#search').val();
             console.log(cityName);
 
-
+        
             var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=40&appid=" + weatherAPIKey;
             console.log(QueryURL);
 
             $.ajax({
                 url: QueryURL,
                 method: "GET"
-
             })
                 //After getting the response- render city, and the information
                 .then(function (response) {
@@ -175,7 +174,7 @@
                         var ivI = index.value;
                         console.log(ivI);
 
-                    
+
 
                         $("#uvindex").text(ivI);
 
@@ -183,7 +182,7 @@
                             $("#uvindex").remove("yellow orange red purple");
                             $("#uvindex").addClass("green");
                         }
-                        else if ( ivI === 3) {
+                        else if (ivI === 3) {
                             $("#uvindex").remove("green orange red purple");
                             $("#uvindex").addClass("yellow");
                         }
@@ -203,7 +202,7 @@
 
                     console.log(response);
                     console.log(uvIndex);
-
+                    
                     var cityList = response.city.name;
                     console.log(cityList);
                     var date = response.list[0].dt_txt;
@@ -217,6 +216,7 @@
                         l.text(cityList);
                         $("#searchlist").append(l);
 
+                        localStorage.setItem("city",cityName);
 
                         //on click show container with city information
                         $("#cityweatherinfo").show();
@@ -275,14 +275,14 @@
 
                     }
                     renderCity();
-                 
+
 
 
 
 
                 })
 
-
+              
 
         });
 
