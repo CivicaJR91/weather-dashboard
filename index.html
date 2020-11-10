@@ -143,11 +143,27 @@
         var weatherAPIKey = "39e4acb4a712720542d4a2cfd44c60f3";
 
         // on the click of the search button make the call to the API
-        $('#searchbtton').click(function () {
+        var storedCity = [];
+        
+        $('#searchbtton').click(function (event) {
+            event.preventDefault();
 
             var cityName = $('#search').val();
             console.log(cityName);
 
+
+            localStorage.setItem("city",JSON.stringify(cityName));
+
+            store();
+            function store (){
+            
+                localStorage.getItem("city");
+
+                storedCity.push(cityName);
+
+                localStorage.setItem("city",JSON.stringify(storedCity));
+            }
+         
         
             var QueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=40&appid=" + weatherAPIKey;
             console.log(QueryURL);
@@ -173,7 +189,6 @@
 
                         var ivI = index.value;
                         console.log(ivI);
-
 
 
                         $("#uvindex").text(ivI);
@@ -216,7 +231,7 @@
                         l.text(cityList);
                         $("#searchlist").append(l);
 
-                        localStorage.setItem("city",cityName);
+                        
 
                         //on click show container with city information
                         $("#cityweatherinfo").show();
